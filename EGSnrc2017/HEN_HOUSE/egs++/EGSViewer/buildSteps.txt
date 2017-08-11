@@ -1,0 +1,36 @@
+1) run egsviewer.bat to copy necessary source files
+
+2) edit egs_config1.h, override the definition as follow (can skip now)
+#ifdef DEBUG
+
+    #define CONFIG_NAME "win2k-cl-debug"
+
+#else
+
+    #define CONFIG_NAME "win2k-cl"
+
+#endif
+
+3) add following codes in the main.cpp at the beginning of main function
+	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+	QFont newFont("Microsoft YaHei");
+	QApplication::setFont(newFont); // set font of application
+	
+3.1) change the line in clipplingplanes.cpp
+planeTable->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+to
+planeTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+4) Download and install the latest Qt for the visual studio you have installed. Open VS and search the plugin with key word "QT", and install the best matched plugin.
+
+5) Restart VS. Create a new QT project using current directory as the project directory. Test if it can be compiled. If not, click "Qt VS Tools -> Qt options -> Qt versions" to setup the path of the installed Qt
+
+6) Restart VS. Create a new QT project. Test if it can be compiled. If not, click "Qt VS Tools -> Qt options -> Qt versions" to setup the path of the installed Qt. Then delete all the auto-generated files and import all necessary source files(*.h, *.cpp, *.rc, *.ui)
+
+7) set egspp.lib as the lib input file to all configurations
+
+8) Compile
+
+9) To run EGSViewer.exe, we need to add one environment variable that
+HEN_HOUSE = The full path of HEN_HOUSE directory
+and the %path% can reach the egspp.dll

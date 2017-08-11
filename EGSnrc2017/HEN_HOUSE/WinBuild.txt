@@ -1,0 +1,80 @@
+1. This is a pure C++ project because the simulation through complex geometry cannot be well handled in GPU
+
+2. The geometry part, i.e. egspp.lib is adapted from EGSnrc
+
+3. How to compile egspp? 
+1) Copy all the files & directories to the corresponding HEN_HOUSE directory that you see in the latest EGSnrc package.
+2) Comment the following codes in egs++\egs_application.cpp since they're linux specific.
+#include <sys/types.h>
+
+#include <sys/stat.h>
+
+#include <unistd.h>
+3) In the egs++\Makefile, change $(CXX) $(INC1) $(DEF1) $(opt) -c $(COUT)$@ $(notdir $(basename $@)).cpp to
+$(CXX) $(INC1) $(DEF1) $(opt) -c /Fo$(COUT)$@ $(notdir $(basename $@)).cpp
+
+
+change the codes in D:\Projects\EGSnrc\HEN_HOUSE\specs\egspp.spec
+obj_rule1 = $(CXX) $(INC1) $(DEFS) $(opt) -c $(COUT)$@ $(notdir $(basename $@)).cpp
+obj_rule2 = $(CXX) $(INC2) $(DEFS) $(opt) -c $(COUT)$@ $(notdir $(basename $@)).cpp
+to 
+obj_rule1 = $(CXX) $(INC1) $(DEFS) $(opt) -c /Fo$(COUT)$@ $(notdir $(basename $@)).cpp
+obj_rule2 = $(CXX) $(INC2) $(DEFS) $(opt) -c /Fo$(COUT)$@ $(notdir $(basename $@)).cpp
+
+4) add return 0; in the function
+int EGS_NDGeometry::ndRegions(int r, int dim, int dimk, int k, vector<int> &regs) {}
+of the file ges++\geometry\egs_nd_geometry\egs_nd_geometry.cpp
+
+5) In egs++\geometry\egs_planes\egs_planes.h, delete EGS_PLANES_EXPORT from the line 
+class EGS_PLANES_EXPORT EGS_PlanesT : public EGS_BaseGeometry
+because it's a template
+
+6) In egs++\geometry\egs_polygon.h, delete EGS_PLANES_EXPORT from
+class EGS_EXPORT EGS_PolygonT 
+because it's a template
+
+7) Delete these lines in egs++\Makefile 
+slibs: $(source_libs)
+
+$(source_libs): $(ABS_DSO)$(libpre)egspp$(libext)
+	cd sources$(DSEP)$@ && $(MAKE)
+
+shapes: $(shape_libs)
+
+$(shape_libs): $(ABS_DSO)$(libpre)egspp$(libext)
+	cd shapes$(DSEP)$@ && $(MAKE)
+
+aobjects: $(aobject_libs)
+
+$(aobject_libs): $(ABS_DSO)$(libpre)egspp$(libext)
+	cd ausgab_objects$(DSEP)$@ && $(MAKE)
+	
+because I'm not going to use them. And delete "slibs shapes aobjects gtest" in this line
+all: $(EGS_BINDIR)egspp$(EXE) $(ABS_DSO)$(libpre)egspp$(libext) glibs slibs shapes aobjects gtest
+	
+8) execute generateConfig.bat to generate two configuration files
+
+<a> Release version
+
+3) open x64 native prompt of Visual studio
+
+4) cd /d YourPath\egs++
+
+5) make EGS_CONFIG=FullPath\config.mak
+
+The dll files should be located in egs++\dso\win2k-cl
+
+
+<b> Debug version
+
+3) open x64 native prompt of Visual studio
+
+4) cd /d YourPath\egs++
+
+5) make EGS_CONFIG=FullPath\config-debug.mak
+
+The dll files should be located in egs++\dso\win2k-cl-debug
+
+4. How to compile egs viewer? See the instructions in egs++\EGSViewer\buildSteps.txt
+
+

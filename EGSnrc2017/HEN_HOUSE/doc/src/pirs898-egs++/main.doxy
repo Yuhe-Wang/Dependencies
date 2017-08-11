@@ -1,0 +1,145 @@
+/*
+###############################################################################
+#
+#  EGSnrc egs++ documentation
+#  Copyright (C) 2015 National Research Council Canada
+#
+#  This file is part of EGSnrc.
+#
+#  EGSnrc is free software: you can redistribute it and/or modify it under
+#  the terms of the GNU Affero General Public License as published by the
+#  Free Software Foundation, either version 3 of the License, or (at your
+#  option) any later version.
+#
+#  EGSnrc is distributed in the hope that it will be useful, but WITHOUT ANY
+#  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+#  FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for
+#  more details.
+#
+#  You should have received a copy of the GNU Affero General Public License
+#  along with EGSnrc. If not, see <http://www.gnu.org/licenses/>.
+#
+###############################################################################
+#
+#  Author:          Iwan Kawrakow, 2005
+#
+#  Contributors:    Ernesto Mainegra-Hing
+#                   Reid Townson
+#                   Frederic Tessier
+#
+###############################################################################
+*/
+
+
+/*! \file main.doxy
+ *  \brief An overview of the egspp documentation
+ *  \IK
+ */
+
+/*! \mainpage notitle
+
+    <center>
+    <table class='egsTable' cellspacing="0" cellpadding="0">
+
+    <tr class='egsRowTitle'>
+        <td> <h3>Getting started</h3> </td>
+    </tr>
+    <tr>
+        <td> \ref introduction </td>
+    </tr>
+    <tr>
+        <td> \ref installation </td>
+    </tr>
+    <tr>
+        <td><a href="http://nrc-cnrc.github.io/EGSnrc/">EGSnrc documentation</a></td>
+    </tr>
+    <tr>
+        <td>
+            <a href="https://github.com/nrc-cnrc/EGSnrc/wiki/FAQ#how-do-i-cite-the-egsnrc-software">How to cite EGSnrc</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="https://github.com/nrc-cnrc/EGSnrc/wiki/Release-notes">Release notes</a>
+        </td>
+    </tr>
+
+    <tr class='egsRowTitle'>
+        <td> <h3>Class library for egs++</h3> </td>
+    </tr>
+    <tr class='egsRowSubtitle'>
+        <td>When writing input files for egs++ applications, you may wish to consult the documentation below.</td>
+    </tr>
+    <tr>
+        <td> \ref common "Common input syntax"</td>
+    </tr>
+    <tr>
+        <td> \ref Geometry "Geometries"</td>
+    </tr>
+    <tr>
+        <td> \ref example_geometries "Geometry examples"</td>
+    </tr>
+    <tr>
+        <td> \ref Sources "Particle sources"</td>
+    </tr>
+    <tr>
+        <td> \ref egspp_main "Main library"</td>
+    </tr>
+
+    <tr class='egsRowTitle'>
+        <td> <h3>Applications for egs++</h3> </td>
+    </tr>
+    <tr class='egsRowSubtitle'>
+        <td>A number of applications based on egs+ are distributed with EGSnrc.</td>
+    </tr>
+    <tr>
+        <td> \ref cavity "cavity" <em>A fully featured application for ion chamber simulations</em></td>
+    </tr>
+    <tr>
+        <td> \ref egs_chamber "egs_chamber" <em>An application for in-phantom ion chamber simulations</em></td>
+    </tr>
+    <tr>
+        <td> \ref egs_fac "egs_fac" <em>Calculates free air chamber (FAC) correction factors</em></td>
+    </tr>
+    <tr>
+        <td> \ref egs_cbct "egs_cbct" <em>An application for CBCT/CT scanner simulations</em></td>
+    </tr>
+
+    <tr class='egsRowTitle'>
+        <td> <h3>How to write an egs++ application</h3> </td>
+    </tr>
+    <tr class='egsRowSubtitle'>
+        <td>Most users will never need to write code to use egs++. However, we provide some examples below to help new developers get started.</td>
+    </tr>
+    <tr>
+        <td> \ref design "Design overview"</td>
+    </tr>
+    <tr>
+        <td>
+            <a href="tutor2pp_8cpp-example.html">Developing a simple egs++ application</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="tutor7pp_8cpp-example.html">Developing an advanced egs++ application</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            \ref geometry_implementing "Developing a new geometry"
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="sources_2egs_point_source_2egs_point_source_8cpp-example.html">Developing a new source</a>
+        </td>
+    </tr>
+
+    </table>
+    
+    <br />
+    </center>
+    
+    <div id='egsImageScroller'></div>
+
+*/
