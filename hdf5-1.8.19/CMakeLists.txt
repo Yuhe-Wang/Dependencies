@@ -1,7 +1,6 @@
 cmake_minimum_required (VERSION 3.2.2)
 PROJECT (HDF5 C CXX)
 
-get_filename_component(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/../" ABSOLUTE)
 set (HDF5_EXTERNALLY_CONFIGURED 1)
 
 set (H5_ZLIB_HEADER "zlib.h")
@@ -836,3 +835,4 @@ endif ()
 configure_file (${HDF_RESOURCES_DIR}/H5pubconf.h.in ${HDF5_BINARY_DIR}/H5pubconf.h @ONLY)
 
 include (CMakeInstallation.cmake)
+get_filename_component(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/../" ABSOLUTE)
